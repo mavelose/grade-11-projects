@@ -1,0 +1,304 @@
+#include<iostream>
+#include<stdlib.h>
+#include<windows.h>
+using namespace std;
+
+float balance = 9840, remaining, transaction, amount;
+string phonenum;
+void Home();
+void TryAgain();
+
+int PayBills() {
+    int biller;
+    string can;
+    system("cls");
+    cout << "\n\n\t\t     BILLER CATEGORIES" << endl << endl
+        << "\t\t  [1] Electric Utilities" << endl
+        << "\t\t  [2] Water Utilities" << endl
+        << "\t\t  [3] Cable" << endl
+        << "\t\t  [4] Internet" << endl
+        << "\t\t  [5] Main Menu" << endl << endl
+        << "\t\t      Choice: "; cin >> biller;
+
+    switch (biller) {
+    case 1:
+        system("cls");
+        cout << "\n\n\t     Payment will be posted real-time." << endl << endl << endl
+            << " Customer Account Number (10-Digit) "; cin >> can;
+        cout << "                         Amount PHP "; cin >> amount;
+        system("cls");
+        cout << "\n\n Customer Account" << endl
+            << " Number (CAN) \t\t\t\t      " << can << endl << endl;
+
+        if (amount <= balance) {
+            remaining = balance - amount;
+            balance -= amount;
+            cout << "\n\n\t\t       You just paid \n\t\t\t  PHP " << amount
+                << "\n\t\t      using your GCash" << endl << endl
+                << "\n\tYour new balance is PHP "
+                << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+        }
+        else if (amount > balance) {
+            cout << "\t       Sorry, insufficient balance." << endl << endl;
+        }
+        TryAgain();
+        break;
+
+    case 2:
+        system("cls");
+        cout << "\n\n\t     Payment will be posted real-time." << endl << endl << endl
+            << " Contract Account Number (8-Digit) "; cin >> can;
+        cout << "                        Amount PHP "; cin >> amount;
+        system("cls");
+        cout << "\n\n Contract Account" << endl
+            << " Number (CAN) \t\t\t\t        " << can << endl << endl;
+
+        if (amount <= balance) {
+            remaining = balance - amount;
+            balance -= amount;
+            cout << "\n\n\t\t       You just paid \n\t\t\t  PHP " << amount
+                << "\n\t\t      using your GCash" << endl << endl
+                << "\n\tYour new balance is PHP "
+                << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+        }
+        else if (amount > balance) {
+            cout << "\t       Sorry, insufficient balance." << endl << endl;
+        }
+        TryAgain();
+        break;
+
+    case 3:
+        system("cls");
+        cout << "\n\n\t    Payment will be posted real-time." << endl << endl << endl
+            << "           Account Number (9-Digit) "; cin >> can;
+        cout << "                         Amount PHP "; cin >> amount;
+        system("cls");
+        cout << "\n\n Account" << endl
+            << " Number (9-Digit) \t\t\t       " << can << endl << endl;
+
+        if (amount <= balance) {
+            remaining = balance - amount;
+            balance -= amount;
+            cout << "\n\n\t\t       You just paid \n\t\t\t  PHP " << amount
+                << "\n\t\t      using your GCash" << endl << endl
+                << "\n\tYour new balance is PHP "
+                << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+        }
+        else if (amount > balance) {
+            cout << "\t       Sorry, insufficient balance." << endl << endl;
+        }
+        TryAgain();
+        break;
+
+    case 4:
+        system("cls");
+        cout << "\n\n\t    Payment will be posted real-time." << endl << endl << endl
+            << "           Account Number (9-Digit) "; cin >> can;
+        cout << "                         Amount PHP "; cin >> amount;
+        system("cls");
+        cout << "\n\n Account" << endl
+            << " Number (9-Digit) \t\t\t       " << can << endl << endl;
+
+        if (amount <= balance) {
+            remaining = balance - amount;
+            balance -= amount;
+            cout << "\n\n\t\t       You just paid \n\t\t\t  PHP " << amount
+                << "\n\t\t      using your GCash" << endl << endl
+                << "\n\tYour new balance is PHP "
+                << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+        }
+        else if (amount > balance) {
+            cout << "\t       Sorry, insufficient balance." << endl << endl;
+        }
+        TryAgain();
+        break;
+
+    case 5:
+        Home();
+        break;
+
+    default:
+        cout << "\n\t\t       INVALID CHOICE. \n\n\t         Do you want to try again?" << endl
+            << "\t\t    [1] Yes   [2] No" << endl << "\t\t\t    ";
+
+        cin >> transaction;
+
+        if (transaction == 1) {
+            Home();
+        }
+        else if (transaction == 2) {
+            cout << "\n\n\tThank you for using GCash! Have a nice day." << endl << endl;
+            exit(0);
+        }
+        else
+            cout << "\n\n\t      You entered an invalid choice."
+            << "\n\tThank you for using GCash! Have a nice day." << endl << endl;
+        exit(0);
+    }
+    exit(0);
+}
+
+int BuyLoad() {
+    system("cls");
+    cout << "\n\n\t\t\t BUY LOAD" << endl << endl
+        << "\t\tBuy Load for*" << endl << "\t\tEnter Mobile Number" << endl << "\t\t\t  ";
+    cin >> phonenum; cout << endl;
+    cout << "\t\tEnter Amount*" << "\n\t\tEnter a value between 10-900"
+        << "\n\t\tPHP "; cin >> amount; cout << endl << endl;
+
+    if (amount >= 10 && amount <= 900) {
+        remaining = balance - amount;
+        balance -= amount;
+        cout << "\t     You have paid PHP " << amount << " of GCash to" "\n\t   purchase PHP " << amount
+            << " load for " << phonenum << "."
+            << "\n\tYour new balance is PHP "
+            << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+    }
+    else
+        cout << "\t   Sorry, you entered an invalid amount." << endl << endl;
+
+    TryAgain();
+    exit(0);
+}
+
+int SendMoney() {
+    system("cls");
+    cout << "\n\n\t      EXPRESS SEND TO A GCASH ACCOUNT" << endl << endl
+        << "\t\t    Send to*" << endl << "\t\t    Enter Mobile Number" << endl << "\t\t\t  ";
+    cin >> phonenum; cout << endl;
+    cout << "\t\t    Amount*" << "\n\t\t    PHP "; cin >> amount; cout << endl << endl;
+
+    if (amount <= balance) {
+        remaining = balance - amount;
+        balance -= amount;
+        cout << "\t   You have sent PHP " << amount << " to " << phonenum << "."
+            << "\n\tYour new balance is PHP "
+            << remaining << ". Thank you for" "\n\t\t\tusing GCash!" << endl << endl;
+    }
+    else if (amount > balance) {
+        cout << "\t       Sorry, insufficient balance." << endl << endl;
+    }
+    TryAgain();
+    exit(0);
+}
+
+void TryAgain() {
+    cout << "\n\t   Do you want to go back to main menu?" << endl
+        << "\t\t    [1] Yes   [2] No" << endl << "\t\t\t    ";
+    cin >> transaction;
+
+    if (transaction == 1) {
+        Home();
+    }
+    else if (transaction == 2) {
+        cout << "\n\n\tThank you for using GCash! Have a nice day." << endl << endl;
+        exit(0);
+    }
+    else
+        cout << "\n\n\t      You entered an invalid choice."
+        << "\n\tThank you for using GCash! Have a nice day." << endl << endl;
+        exit (0);
+
+    exit(0);
+}
+
+void Home() {
+    system("color F9");
+    system("cls");
+
+    int choice;
+    cout << "\n\t\t\t   GCash" << endl << endl
+        << "\t\t\t  PHP " << balance << endl << "\t\t     Available Balance" << endl << endl << endl
+        << "\t\t     $$$$$$$$$$$$$$$$$$" << endl
+        << "\t\t     |                |" << endl
+        << "\t\t     | [1] Send Money |" << endl
+        << "\t\t     | [2] Buy Load   |" << endl
+        << "\t\t     | [3] Pay Bills  |" << endl
+        << "\t\t     | [4] Exit       |" << endl
+        << "\t\t     |                |" << endl
+        << "\t\t     $$$$$$$$$$$$$$$$$$" << endl << endl
+        << "\t\t         Choice: ";
+    cin >> choice;
+
+    switch (choice) {
+    case 1:
+        SendMoney();
+        break;
+
+    case 2:
+        BuyLoad();
+        break;
+
+    case 3:
+        PayBills();
+        break;
+    case 4:
+        cout << "\n\tThank you for using GCash! Have a nice day." << endl << endl;
+        exit(0);
+        break;
+    default:
+        cout << "\n\t\t       INVALID CHOICE. \n\n\t         Do you want to try again?" << endl
+            << "\t\t    [1] Yes   [2] No" << endl << "\t\t\t    ";
+
+        cin >> transaction;
+
+        if (transaction == 1) {
+            Home();
+        }
+        else if (transaction == 2) {
+            cout << "\n\n\tThank you for using GCash! Have a nice day." << endl << endl;
+            exit(0);
+        }
+        else
+            cout << "\n\n\t      You entered an invalid choice."
+            << "\n\tThank you for using GCash! Have a nice day." << endl << endl;
+        exit(0);
+    }
+
+    exit(0);
+}
+
+int main() {
+
+    system("color 9F");
+    system("cls");
+    cout << "\n\n\t   ************************************" << endl;
+    cout << "\t   |               GCash              |" << endl;
+    cout << "\t   |           0999 999 9999          |" << endl;
+    cout << "\t   ************************************" << endl;
+
+    string mpin, mpinentry = "8816";
+    int attempts = 1;
+
+    cout << "\t\t  Enter your 4-digit MPIN" << endl;
+    cout << "\t\t\t   ";  cin >> mpin; cout << endl;
+
+    while (mpin != mpinentry && attempts <= 2)
+    {
+        cout << "\t       The MPIN entered is incorrect."
+            << "\n\t      Enter the correct MPIN to avoid" "\n\t reaching the three allowed login attempts." << endl << endl
+            << "\t\t  Enter your 4-digit MPIN" << endl;
+        cout << "\t\t\t   ";  cin >> mpin; cout << endl;
+        attempts++;
+    }
+
+    if (mpin == mpinentry && attempts <= 3)
+    {
+        cout << "\n\n\n\t\t\t Loading";
+        Sleep(1000);
+        cout << "."; 
+        Sleep(1000);
+        cout << ".";
+        Sleep(1000);
+        cout << ".";
+        Sleep(1000);
+        cout << ".";
+        Home();
+    }
+    else
+    {
+        cout << "\n\n\n\t\t Retries have been exceeded" << endl << endl << endl;
+    }
+
+    return 0;
+}
